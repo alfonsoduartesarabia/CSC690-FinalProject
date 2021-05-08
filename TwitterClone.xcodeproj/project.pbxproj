@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B19824FACA1AE4C8187E5A7 /* Pods_TwitterClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16909A6CCAFC0E64C27956C2 /* Pods_TwitterClone.framework */; };
+		844E949A26454C5B007B45ED /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E949926454C5B007B45ED /* FeedViewController.swift */; };
+		848C247D26461E5900820182 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C247C26461E5900820182 /* Constants.swift */; };
+		84BB6DF12643A4020070B355 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84BB6DF02643A4020070B355 /* GoogleService-Info.plist */; };
 		84C8CFB026428E9000C725D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFAF26428E9000C725D2 /* AppDelegate.swift */; };
 		84C8CFB226428E9000C725D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFB126428E9000C725D2 /* SceneDelegate.swift */; };
 		84C8CFB426428E9000C725D2 /* TwitterCloneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFB326428E9000C725D2 /* TwitterCloneController.swift */; };
@@ -15,16 +17,19 @@
 		84C8CFB926428E9100C725D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C8CFB826428E9100C725D2 /* Assets.xcassets */; };
 		84C8CFBC26428E9100C725D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C8CFBA26428E9100C725D2 /* LaunchScreen.storyboard */; };
 		84C8CFCA264314D700C725D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFC9264314D700C725D2 /* LoginViewController.swift */; };
-		84C8CFCC264314EC00C725D2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFCB264314EC00C725D2 /* RegisterViewController.swift */; };
+		84C8CFCC264314EC00C725D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFCB264314EC00C725D2 /* SignUpViewController.swift */; };
 		84C8CFD326438DA600C725D2 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFD226438DA600C725D2 /* TweetViewController.swift */; };
 		84C8CFD526438DBB00C725D2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8CFD426438DBB00C725D2 /* ProfileViewController.swift */; };
-		84C8CFDB2643A25900C725D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C8CFDA2643A25900C725D2 /* GoogleService-Info.plist */; };
+		84CF71CF2644BACA005EC5D3 /* Pods_TwitterClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16909A6CCAFC0E64C27956C2 /* Pods_TwitterClone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16909A6CCAFC0E64C27956C2 /* Pods_TwitterClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29986EC8ACDE2655E7E2B081 /* Pods-TwitterClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.debug.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.debug.xcconfig"; sourceTree = "<group>"; };
 		5D0CB66FA98A577132CE957C /* Pods-TwitterClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.release.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.release.xcconfig"; sourceTree = "<group>"; };
+		844E949926454C5B007B45ED /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		848C247C26461E5900820182 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84BB6DF02643A4020070B355 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C8CFAC26428E9000C725D2 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8CFAF26428E9000C725D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C8CFB126428E9000C725D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,10 +39,9 @@
 		84C8CFBB26428E9100C725D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C8CFBD26428E9100C725D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C8CFC9264314D700C725D2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		84C8CFCB264314EC00C725D2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		84C8CFCB264314EC00C725D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84C8CFD226438DA600C725D2 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		84C8CFD426438DBB00C725D2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		84C8CFDA2643A25900C725D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B19824FACA1AE4C8187E5A7 /* Pods_TwitterClone.framework in Frameworks */,
+				84CF71CF2644BACA005EC5D3 /* Pods_TwitterClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,14 @@
 				16909A6CCAFC0E64C27956C2 /* Pods_TwitterClone.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		848C247B26461E2B00820182 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				848C247C26461E5900820182 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		84C8CFA326428E9000C725D2 = {
@@ -81,7 +93,8 @@
 		84C8CFAE26428E9000C725D2 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
-				84C8CFDA2643A25900C725D2 /* GoogleService-Info.plist */,
+				848C247B26461E2B00820182 /* Helpers */,
+				84BB6DF02643A4020070B355 /* GoogleService-Info.plist */,
 				84C8CFC72643131700C725D2 /* Resources */,
 				84C8CFC62643130E00C725D2 /* ViewModels */,
 				84C8CFC52643130700C725D2 /* Models */,
@@ -97,9 +110,10 @@
 			children = (
 				84C8CFB326428E9000C725D2 /* TwitterCloneController.swift */,
 				84C8CFC9264314D700C725D2 /* LoginViewController.swift */,
-				84C8CFCB264314EC00C725D2 /* RegisterViewController.swift */,
+				84C8CFCB264314EC00C725D2 /* SignUpViewController.swift */,
 				84C8CFD226438DA600C725D2 /* TweetViewController.swift */,
 				84C8CFD426438DBB00C725D2 /* ProfileViewController.swift */,
+				844E949926454C5B007B45ED /* FeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,7 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C8CFBC26428E9100C725D2 /* LaunchScreen.storyboard in Resources */,
-				84C8CFDB2643A25900C725D2 /* GoogleService-Info.plist in Resources */,
+				84BB6DF12643A4020070B355 /* GoogleService-Info.plist in Resources */,
 				84C8CFB926428E9100C725D2 /* Assets.xcassets in Resources */,
 				84C8CFB726428E9000C725D2 /* Main.storyboard in Resources */,
 			);
@@ -270,12 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C8CFCA264314D700C725D2 /* LoginViewController.swift in Sources */,
-				84C8CFCC264314EC00C725D2 /* RegisterViewController.swift in Sources */,
+				84C8CFCC264314EC00C725D2 /* SignUpViewController.swift in Sources */,
 				84C8CFD326438DA600C725D2 /* TweetViewController.swift in Sources */,
 				84C8CFB426428E9000C725D2 /* TwitterCloneController.swift in Sources */,
 				84C8CFD526438DBB00C725D2 /* ProfileViewController.swift in Sources */,
 				84C8CFB026428E9000C725D2 /* AppDelegate.swift in Sources */,
+				844E949A26454C5B007B45ED /* FeedViewController.swift in Sources */,
 				84C8CFB226428E9000C725D2 /* SceneDelegate.swift in Sources */,
+				848C247D26461E5900820182 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TwitterClone/TwitterClone.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,6 +450,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alfonso.TwitterClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SAMPLE_CODE_DISAMBIGUATOR = "";
+				"SAMPLE_CODE_DISAMBIGUATOR[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -442,7 +464,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TwitterClone/TwitterClone.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +475,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alfonso.TwitterClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SAMPLE_CODE_DISAMBIGUATOR = "";
+				"SAMPLE_CODE_DISAMBIGUATOR[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
