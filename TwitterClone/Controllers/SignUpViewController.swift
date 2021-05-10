@@ -57,16 +57,30 @@ class SignUpViewController: UIViewController {
                 
                 // add other information to firestore database
                 let db = Firestore.firestore()
-                db.collection("users").addDocument(data: ["firstname": firstnameText, "lastname": lastnameText,
-                                                          "username": usernameText, "uid": result.user.uid], completion: { (error) in
-                                                            if error != nil{
-                                                                print("Error when saving user data")
-                                                            }
+                
+                let docData: [String: Any] = [
+                    "firstname": firstnameText, "lastname": lastnameText,
+                    "username": usernameText, "dateCreated": Date.init()
+                ]
+                
+                db.collection("users").document(result.user.uid).setData(docData) { err in
+                    if let err = err{
+                        print("Error writing document: \(err)")
+                    } else{
+                        print("Document sucessfully written!")
+                    }
+                }
+                
+//                self?.docRef = db.collection("users").addDocument(data: ["firstname": firstnameText, "lastname": lastnameText,
+//                                                          "username": usernameText, "uid": result.user.uid], completion: { (error) in
+//                                                            if error != nil{
+//                                                                print("Error when saving user data")
+//                                                            }
 //                                                            else{
 //                                                                print("Document added with ID: \(self!.docRef!.documentID)")
 //                                                            }
-
-                                                          })
+//
+//                                                          })
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                 self?.transitiontoHomeScreen()
