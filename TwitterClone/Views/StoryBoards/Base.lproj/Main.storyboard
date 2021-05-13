@@ -281,13 +281,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-Yx-bie">
-                                                    <rect key="frame" x="80" y="11" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhW-4y-9Ms">
-                                                    <rect key="frame" x="151" y="11" width="79" height="21"/>
+                                                    <rect key="frame" x="80" y="11" width="80" height="37"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -304,21 +298,34 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhW-4y-9Ms">
+                                                    <rect key="frame" x="189" y="20" width="78.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="leading" secondItem="uue-Qs-RC2" secondAttribute="trailing" constant="8" symbolic="YES" id="4ie-Wh-Cnl"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EhW-4y-9Ms" secondAttribute="trailing" constant="20" symbolic="YES" id="6od-Ys-Pzo"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="baseline" secondItem="IEn-Yx-bie" secondAttribute="baseline" id="AAt-O8-MDA"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="leading" secondItem="m8u-Wz-yht" secondAttribute="leading" constant="20" id="DtZ-EM-YPs"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leading" constant="151" id="MM5-uw-jh6"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" id="WD5-if-vuP"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IEn-Yx-bie" secondAttribute="trailing" constant="8" symbolic="YES" id="YF2-Ir-czi"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leading" constant="189" id="MM5-uw-jh6"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="9" id="WD5-if-vuP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="m8u-Wz-yht" secondAttribute="bottom" constant="-5" id="YY2-me-GOD"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="-3" id="ZSW-Df-ldo"/>
                                                 <constraint firstItem="m8u-Wz-yht" firstAttribute="top" secondItem="uue-Qs-RC2" secondAttribute="bottom" constant="8" symbolic="YES" id="ZpC-zu-e1I"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="IEn-Yx-bie" secondAttribute="trailing" constant="29" id="hbi-4G-CaP"/>
+                                                <constraint firstItem="m8u-Wz-yht" firstAttribute="top" secondItem="IEn-Yx-bie" secondAttribute="bottom" constant="8" symbolic="YES" id="jgy-zV-ZNk"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leadingMargin" id="klp-k2-O9v"/>
-                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="leading" secondItem="uue-Qs-RC2" secondAttribute="trailing" constant="8" id="mBl-ws-sx2"/>
+                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" id="nOV-3f-O8X"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="IEn-Yx-bie" id="LS1-o4-SxG"/>
+                                            <outlet property="profileImageView" destination="uue-Qs-RC2" id="EBi-sW-ZL7"/>
+                                            <outlet property="tweetLabel" destination="m8u-Wz-yht" id="msz-YF-hWx"/>
+                                            <outlet property="usernameLabel" destination="EhW-4y-9Ms" id="uy0-EV-xiM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -334,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-yN-ePo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="887"/>
+            <point key="canvasLocation" x="1163.768115942029" y="886.60714285714278"/>
         </scene>
         <!--Profile-->
         <scene sceneID="GPb-U0-gPn">
@@ -527,6 +534,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

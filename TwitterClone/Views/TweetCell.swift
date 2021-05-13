@@ -15,38 +15,27 @@ class TweetTableViewCell: UITableViewCell {
     // use main async ??
     
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var tweetLabel: UITextView!
+    @IBOutlet weak var profileImageView: UIImageView!
     
-    // Create custom class to hold username, name, and tweet
-    class UserTweetInfo{
-//        let name: String
-//        let userName: String
-//        let tweet: String
-//
-//        init(name: String, userName: String, tweet: String) {
-//            self.name = name
-//            self.userName = userName
-//            self.tweet = tweet
-//        }
-//
-        
-        var userTweets: NSDictionary = [:]
-        
-        init(userTweets: NSDictionary) {
-            self.userTweets = userTweets
-        }
+        override func prepareForReuse() {
+            nameLabel.text = ""
+            usernameLabel.text = ""
+            tweetLabel.text = ""
     }
     
-    // Iterate through the custom class object array
-//    func printInfo(tweets: [UserTweetInfo]){
-//        for tweetEntry in tweets{
-//            print("[Name: \(tweetEntry.name), Username: \(tweetEntry.userName), Tweet: \(tweetEntry.tweet)]")
-//        }
-//    }
-    
-    
-    
-//    override func prepareForReuse() {
-//        <#code#>
-//    }
+    class TweetInfo {
+        let name : String
+        let username : String
+        let tweet : String
+        
+        init(name : String, username: String, tweet: String) {
+            self.name = name
+            self.username = username
+            self.tweet = tweet
+        }
+    }
     
 }

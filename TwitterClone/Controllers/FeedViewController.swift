@@ -13,90 +13,51 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tweetButton: UIButton!
-    
-    var tweets: [NSDictionary] = []
-    var docRef: DocumentReference? = nil
+  
+    //var tweets: [String] = []
+    var tweets: [TweetTableViewCell.TweetInfo] = []
     let db = Firestore.firestore()
+    //var docRef: DocumentReference? = nil
     //var listener: ListenerRegistration
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as? TweetTableViewCell else {
-//            return UITableViewCell()
-//        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
-//        cell.textLabel?.text = tweets[indexPath.row]
-        
-        return cell
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         validateAuth()
-        //printUserData()
-        loadTweets()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
+        loadTweets()
     }
 
     
     func loadTweets(){
        // guard let uid = Auth.auth().currentUser?.uid else{ return }
-    
-//        var query = db.collection("users").getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
-//                }
-//        }
         
-//        db.collectionGroup("tweets").whereField("tweet", isEqualTo: true).getDocuments { (snapshot, error) in
-//            if let err = error {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in snapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                    self.tweets = ["Name": document.data()]
-//                }
-//            }
-//        }
-        
-        db.collectionGroup("tweets").getDocuments { (snapshot, error) in
-            if let err = error {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in snapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    self.tweets.append(document.data() as NSDictionary)
-                    
-                }
-            }
-        }
-        
-    }
-    
-    func printUserData(){
-            guard let uid = Auth.auth().currentUser?.uid else{ return }
-
-            db.collection("users").document(uid).getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    print("Document data: \(dataDescription)")
-                    guard let text = document.get("username") as? String else{return}
-                    print(text)
+        DispatchQueue.main.async {
+            
+            self.db.collectionGroup("tweets").getDocuments { (snapshot, error) in
+                if let err = error {
+                    print("Error getting documents: \(err)")
                 } else {
-                    print("Document does not exist")
+                    for document in snapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        //self.tweets.append(document.data() as NSDictionary)
+                        //self.tweets.append(document.get("tweet") as! String)
+                        let firstName = document.get("firstname") as! String
+                        let lastName = document.get("lastname") as! String
+                        let name = firstName + " " + lastName
+                        let username = document.get("username") as! String
+                        let tweet = document.get("tweet") as! String
+                        let newTweetInfo = TweetTableViewCell.TweetInfo.init(name: name, username: username, tweet: tweet)
+                        self.tweets.append(newTweetInfo)
+                    }
                 }
+                self.tableView.reloadData()
+            }
+            
         }
+        
     }
+    
     
     // check if user is logged in or not
     private func validateAuth(){
@@ -111,6 +72,38 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as? TweetTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.nameLabel?.text = tweets[indexPath.row].name
+        cell.usernameLabel?.text = tweets[indexPath.row].username
+        cell.tweetLabel?.text = tweets[indexPath.row].tweet
+        cell.tweetLabel?.isEditable = false
+        return cell
+    }
+
+    
+//    func printUserData(){
+//            guard let uid = Auth.auth().currentUser?.uid else{ return }
+//
+//            db.collection("users").document(uid).getDocument { (document, error) in
+//                if let document = document, document.exists {
+//                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                    print("Document data: \(dataDescription)")
+//                    guard let text = document.get("username") as? String else{return}
+//                    print(text)
+//                } else {
+//                    print("Document does not exist")
+//                }
+//        }
+//    }
     
     //    override func viewDidAppear(_ animated: Bool) {
     //        super.viewDidAppear(animated)
