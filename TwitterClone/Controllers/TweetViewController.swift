@@ -6,24 +6,50 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TweetViewController: UIViewController {
 
+    @IBOutlet weak var tweetButton: UIButton!
+    @IBOutlet weak var tweetTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //tweetButton.isEnabled = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tweetButton(_ sender: UIButton) {
+        guard let tweet = tweetTextView.text else{
+            return
+        }
+        
+        if !tweet.isEmpty{
+            guard let uid = Auth.auth().currentUser?.uid else{ return }
+            let db = Firestore.firestore()
+            
+            let docRef: DocumentReference? = db.collection("users").document(uid)
+            
+            docRef?.getDocument{ (document, error) in
+                if let document = document, document.exists{
+                    let firstName = document.get("firstname")
+                    let lastName = document.get("lastname")
+                    let userName = document.get("username")
+                    
+                    docRef?.collection("tweets").addDocument(data: ["dateCreated": Date(), "firstname": firstName!, "lastname": lastName!,
+                                                                    "username": userName!, "tweet" : tweet, "length" : tweet.count],
+                                                             completion: { (error) in
+                                                                if  error != nil {
+                                                                    print("Error saving tweet")
+                                                                } else{
+                                                                    print("Document added")
+                                                                }
+                                                             })
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    */
 
 }

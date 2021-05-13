@@ -23,7 +23,6 @@ class SignUpViewController: UIViewController {
     var docRef: DocumentReference? = nil
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //signUp.isEnabled = false
@@ -71,25 +70,11 @@ class SignUpViewController: UIViewController {
                     }
                 }
                 
-//                self?.docRef = db.collection("users").addDocument(data: ["firstname": firstnameText, "lastname": lastnameText,
-//                                                          "username": usernameText, "uid": result.user.uid], completion: { (error) in
-//                                                            if error != nil{
-//                                                                print("Error when saving user data")
-//                                                            }
-//                                                            else{
-//                                                                print("Document added with ID: \(self!.docRef!.documentID)")
-//                                                            }
-//
-//                                                          })
-                
-                //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-                //self?.transitiontoHomeScreen()
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                self?.signUp.isEnabled = false
             })
-            
             // Transition to home screen
             //self.transitiontoHomeScreen()
         }

@@ -452,6 +452,9 @@
                                 <state key="normal" title="Tweet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tweetButton:" destination="fqP-sc-kyi" eventType="touchUpInside" id="fIW-ru-liJ"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kSf-vw-SRW">
                                 <rect key="frame" x="0.0" y="189" width="414" height="151"/>
@@ -473,6 +476,10 @@
                             <constraint firstItem="n0i-un-Z1X" firstAttribute="leading" secondItem="joE-fw-djH" secondAttribute="leading" id="pl7-VQ-lUE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tweetButton" destination="lFZ-qc-VlN" id="dwR-Cy-Y5D"/>
+                        <outlet property="tweetTextView" destination="kSf-vw-SRW" id="Wib-hS-a15"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lo0-5K-BmW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
