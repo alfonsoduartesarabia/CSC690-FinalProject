@@ -34,13 +34,17 @@ class LoginViewController: UIViewController {
         
         // Firebase login
         Auth.auth().signIn(withEmail: emailText, password: passwordText) { [weak self] authResult, error in
-          guard let user = authResult, let strongSelf = self else {
+            guard let user = authResult, let  _ = self else {
             print("Error loging in with email: \(emailText)")
             return }
             
             print("Logged in \(user)")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-            self?.transitiontoHomeScreen()
+            //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            //self?.transitiontoHomeScreen()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
         }
         
     }

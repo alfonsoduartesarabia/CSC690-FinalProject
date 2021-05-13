@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController {
             // Firebase create user
             Auth.auth().createUser(withEmail: emailText, password: passwordText, completion: { [weak self]
                 authResult, error in
-                guard let strongSelf = self else {
+                guard self != nil else {
                     return
                 }
                 guard let result = authResult, error == nil else{
@@ -82,8 +82,12 @@ class SignUpViewController: UIViewController {
 //
 //                                                          })
                 
-                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-                self?.transitiontoHomeScreen()
+                //strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                //self?.transitiontoHomeScreen()
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             })
             
             // Transition to home screen
