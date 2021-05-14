@@ -454,7 +454,7 @@
 				SAMPLE_CODE_DISAMBIGUATOR = "";
 				"SAMPLE_CODE_DISAMBIGUATOR[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -479,7 +479,7 @@
 				SAMPLE_CODE_DISAMBIGUATOR = "";
 				"SAMPLE_CODE_DISAMBIGUATOR[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
