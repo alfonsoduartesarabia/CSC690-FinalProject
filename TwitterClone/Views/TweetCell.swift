@@ -36,6 +36,7 @@ class TweetTableViewCell: UITableViewCell {
             self.username = username
             self.tweet = tweet
         }
+        
     }
     
 }

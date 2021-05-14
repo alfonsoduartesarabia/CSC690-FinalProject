@@ -13,6 +13,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tweetButton: UIButton!
+    
   
     //var tweets: [String] = []
     var tweets: [TweetTableViewCell.TweetInfo] = []
@@ -26,6 +27,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         loadTweets()
+        //present(TweetViewController(), animated: true, completion: nil)
     }
 
     
@@ -105,10 +107,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        }
 //    }
     
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //        validateAuth()
-    //       // let isLoggedIn = UserDefaults.standard.bool(forKey: "logged_in")
-    //    }
+    @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            tableView.reloadData()
+        }
+    
+//        override func viewDidAppear(_ animated: Bool) {
+//            super.viewDidAppear(animated)
+//            tableView.reloadData()
+//           // let isLoggedIn = UserDefaults.standard.bool(forKey: "logged_in")
+//        }
 
 }

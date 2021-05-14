@@ -9,7 +9,15 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+//protocol InputVCChange {
+//    func new(_ cityName: String){
+//
+//    }
+//}
+
 class TweetViewController: UIViewController {
+    
+    //var instanceOfFeedVC:FeedViewController!
 
     @IBOutlet weak var tweetButton: UIButton!
     @IBOutlet weak var tweetTextView: UITextView!
@@ -47,8 +55,30 @@ class TweetViewController: UIViewController {
                                                              })
                 }
             }
-            
-            self.dismiss(animated: true, completion: nil)
+            //instanceOfFeedVC.tableView.reloadData()
+            self.performSegue(withIdentifier: "tweetID", sender: self)
+            self.viewWillAppear(true)
+            //self.instanceOfFeedVC.tableView.reloadData()
+            self.dismiss(animated: true){
+                
+            }
+        }
+    }
+    
+//    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            DispatchQueue.main.async {
+//
+//            }
+//        }
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController as? FeedViewController {
+                DispatchQueue.main.async {
+                    firstVC.tableView.reloadData()
+                }
         }
     }
 

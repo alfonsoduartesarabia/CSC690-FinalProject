@@ -355,7 +355,7 @@
                                 <rect key="frame" x="0.0" y="182" width="414" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="190" id="Ey6-d0-rgt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="190" id="Ey6-d0-rgt" customClass="UserTweetTableViewCell" customModule="TwitterClone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ey6-d0-rgt" id="qeZ-eY-Flp">
@@ -363,11 +363,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello World" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-3k-B7T">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="414" id="hrf-lK-nm8"/>
-                                                        <constraint firstAttribute="height" constant="190" id="vxq-XH-k3V"/>
+                                                        <constraint firstAttribute="height" constant="215" id="vxq-XH-k3V"/>
                                                     </constraints>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -379,6 +379,9 @@
                                                 <constraint firstItem="xNf-3k-B7T" firstAttribute="top" secondItem="qeZ-eY-Flp" secondAttribute="top" id="qem-ib-ndc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tweetLabel" destination="xNf-3k-B7T" id="D56-sX-3G8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -422,7 +425,9 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="4P4-Na-vff"/>
                     <navigationItem key="navigationItem" id="27z-oG-44u"/>
                     <connections>
-                        <outlet property="tableView" destination="Vqb-2c-EAT" id="q8P-ac-4FR"/>
+                        <outlet property="nameLabel" destination="VYh-ag-RQY" id="Rt7-YN-HJU"/>
+                        <outlet property="tableView" destination="Vqb-2c-EAT" id="pSg-u5-xuR"/>
+                        <outlet property="usernameLabel" destination="K8S-Di-ebg" id="axk-Bw-lyc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUx-2O-Am6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -432,7 +437,7 @@
         <!--Tweet View Controller-->
         <scene sceneID="eeb-7J-FKL">
             <objects>
-                <viewController id="fqP-sc-kyi" customClass="TweetViewController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="fqP-sc-kyi" customClass="TweetViewController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="joE-fw-djH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -479,9 +484,11 @@
                     <connections>
                         <outlet property="tweetButton" destination="lFZ-qc-VlN" id="dwR-Cy-Y5D"/>
                         <outlet property="tweetTextView" destination="kSf-vw-SRW" id="Wib-hS-a15"/>
+                        <segue destination="6u5-dd-I6S" kind="unwind" identifier="tweetID" unwindAction="unwindToViewControllerAWithSegue:" id="fxa-wx-Ceg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lo0-5K-BmW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6u5-dd-I6S" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2181" y="887"/>
         </scene>
