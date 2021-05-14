@@ -12,8 +12,11 @@ A simple twitter clone.
 - [License](#license)
 
 ## About The Project
+This is a simple twitter clone.
 
 ## Features
+* Post tweets
+* Ability to see all the tweets posted in the feed
 
 ## Install
 
@@ -26,7 +29,15 @@ git clone https://github.com/alfonsoduartesarabia/CSC690-FinalProject.git
 ## Usage
 
 ## API
-
+Google Firebase - Firestore
+```
+https://firebase.google.com/docs/build
+```
+SDWebImage
+```
+https://github.com/SDWebImage/SDWebImage
+```
+See the podfile for other APIs
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
