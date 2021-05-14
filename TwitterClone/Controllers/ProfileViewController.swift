@@ -13,8 +13,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
     var tweets: [UserTweetTableViewCell.UserTweetInfo] = []
     let db = Firestore.firestore()
     
@@ -27,6 +28,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadTweets(){
         guard let uid = Auth.auth().currentUser?.uid else{ return }
+        
+        db.collection("users").document(uid).getDocument { (documents, error) in
+            if let err = error{
+                print("ERROR GETTING DOCUMENT \(err)")
+            } else {
+                if let document = documents, documents!.exists{
+                    let firstName = document.get("firstname") as! String
+                    let lastName = document.get("lastname") as! String
+                    let name = firstName + " " + lastName
+                    self.nameLabel.text = name
+                    let username = document.get("username") as! String
+                    self.usernameLabel.text = username
+                }
+            }
+        }
+        
         let docRef: DocumentReference? = db.collection("users").document(uid)
         
         DispatchQueue.main.async {
@@ -37,12 +54,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 } else {
                     for document in snapshot!.documents {
                         //print("\(document.documentID) => \(document.data())")
-                        let firstName = document.get("firstname") as! String
-                        let lastName = document.get("lastname") as! String
-                        let name = firstName + " " + lastName   
-                        self.nameLabel.text = name
-                        let username = document.get("username") as! String
-                        self.usernameLabel.text = username
                         let tweet = document.get("tweet") as! String
                         let TweetInfo = UserTweetTableViewCell.UserTweetInfo.init(tweet: tweet)
                         self.tweets.append(TweetInfo)
@@ -53,6 +64,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeNavController = storyboard.instantiateViewController(identifier: "HomeNavigationController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(homeNavController)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,8 +85,4 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-
-    
-    
-
 }

@@ -15,11 +15,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tweetButton: UIButton!
     
   
-    //var tweets: [String] = []
     var tweets: [TweetTableViewCell.TweetInfo] = []
     let db = Firestore.firestore()
-    //var docRef: DocumentReference? = nil
-    //var listener: ListenerRegistration
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,35 +87,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.tweetLabel?.isEditable = false
         return cell
     }
-
     
-//    func printUserData(){
-//            guard let uid = Auth.auth().currentUser?.uid else{ return }
-//
-//            db.collection("users").document(uid).getDocument { (document, error) in
-//                if let document = document, document.exists {
-//                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                    print("Document data: \(dataDescription)")
-//                    guard let text = document.get("username") as? String else{return}
-//                    print(text)
-//                } else {
-//                    print("Document does not exist")
-//                }
+//    @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
 //        }
 //    }
+//
     
-    @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            tableView.reloadData()
-        }
+//    override func viewWillDisappear(_ animated: Bool) {
+//            super.viewWillDisappear(animated)
+//            tableView.reloadData()
+//        }
     
 //        override func viewDidAppear(_ animated: Bool) {
 //            super.viewDidAppear(animated)

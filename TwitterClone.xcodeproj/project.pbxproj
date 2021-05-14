@@ -100,7 +100,6 @@
 				848C247B26461E2B00820182 /* Helpers */,
 				84BB6DF02643A4020070B355 /* GoogleService-Info.plist */,
 				84C8CFC72643131700C725D2 /* Resources */,
-				84C8CFC62643130E00C725D2 /* ViewModels */,
 				84C8CFC52643130700C725D2 /* Models */,
 				84C8CFC4264312F900C725D2 /* Views */,
 				84C8CFC3264312EE00C725D2 /* Controllers */,
@@ -138,13 +137,6 @@
 			children = (
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		84C8CFC62643130E00C725D2 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		84C8CFC72643131700C725D2 /* Resources */ = {

@@ -9,22 +9,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-//protocol InputVCChange {
-//    func new(_ cityName: String){
-//
-//    }
-//}
-
 class TweetViewController: UIViewController {
-    
-    //var instanceOfFeedVC:FeedViewController!
 
     @IBOutlet weak var tweetButton: UIButton!
     @IBOutlet weak var tweetTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tweetButton.isEnabled = false
+
     }
     
     @IBAction func tweetButton(_ sender: UIButton) {
