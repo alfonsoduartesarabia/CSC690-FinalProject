@@ -14,6 +14,8 @@ class TweetViewController: UIViewController {
     @IBOutlet weak var tweetButton: UIButton!
     @IBOutlet weak var tweetTextView: UITextView!
     
+    var vc: UIViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,20 +32,22 @@ class TweetViewController: UIViewController {
             
             let docRef: DocumentReference? = db.collection("users").document(uid)
             
-            docRef?.getDocument{ (document, error) in
-                if let document = document, document.exists{
-                    let firstName = document.get("firstname")
-                    let lastName = document.get("lastname")
-                    let userName = document.get("username")
-                    
-                    docRef?.collection("tweets").addDocument(data: ["dateCreated": Date(), "firstname": firstName!, "lastname": lastName!, "username": userName!, "tweet" : tweet, "length" : tweet.count], completion: { (error) in
-                        if  error != nil {
-                            print("Error saving tweet")
-                        } else{
-                            print("Document added")
-                            
-                        }
-                    })
+            DispatchQueue.global().async {
+                docRef?.getDocument{ (document, error) in
+                    if let document = document, document.exists{
+                        let firstName = document.get("firstname")
+                        let lastName = document.get("lastname")
+                        let userName = document.get("username")
+                        
+                        docRef?.collection("tweets").addDocument(data: ["dateCreated": Date(), "firstname": firstName!, "lastname": lastName!, "username": userName!, "tweet" : tweet, "length" : tweet.count], completion: { (error) in
+                            if  error != nil {
+                                print("Error saving tweet")
+                            } else{
+                                print("Document added")
+                                
+                            }
+                        })
+                    }
                 }
             }
             //instanceOfFeedVC.tableView.reloadData()
@@ -51,7 +55,7 @@ class TweetViewController: UIViewController {
             self.viewWillAppear(true)
             //self.instanceOfFeedVC.tableView.reloadData()
             self.dismiss(animated: true){
-                
+                //FeedViewController.loadTweets(<#T##self: FeedViewController##FeedViewController#>)
             }
         }
     }

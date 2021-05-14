@@ -14,6 +14,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tweetButton: UIButton!
     
+    
   
     var tweets: [TweetTableViewCell.TweetInfo] = []
     let db = Firestore.firestore()
@@ -28,10 +29,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     
+    @IBAction func tweetButtonTapped(_ sender: Any) {
+        
+    }
+    
     func loadTweets(){
        // guard let uid = Auth.auth().currentUser?.uid else{ return }
         
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             
             self.db.collectionGroup("tweets").getDocuments { (snapshot, error) in
                 if let err = error {
@@ -51,7 +56,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                         self.tweets.append(newTweetInfo)
                     }
                 }
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
             
         }

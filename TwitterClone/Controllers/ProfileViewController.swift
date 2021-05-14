@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             
             docRef?.collection("tweets").getDocuments { (snapshot, error) in
                 if let err = error {
@@ -59,9 +59,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                         self.tweets.append(TweetInfo)
                     }
                 }
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-            
+    
         }
         
     }
