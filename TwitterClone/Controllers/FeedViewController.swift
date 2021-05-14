@@ -44,7 +44,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let firstName = document.get("firstname") as! String
                         let lastName = document.get("lastname") as! String
                         let name = firstName + " " + lastName
-                        let username = document.get("username") as! String
+                        var username = "@"
+                        username += document.get("username") as! String
                         let tweet = document.get("tweet") as! String
                         let newTweetInfo = TweetTableViewCell.TweetInfo.init(name: name, username: username, tweet: tweet)
                         self.tweets.append(newTweetInfo)

@@ -28,8 +28,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadTweets(){
         guard let uid = Auth.auth().currentUser?.uid else{ return }
+        let docRef: DocumentReference? = db.collection("users").document(uid)
         
-        db.collection("users").document(uid).getDocument { (documents, error) in
+        docRef!.getDocument { (documents, error) in
             if let err = error{
                 print("ERROR GETTING DOCUMENT \(err)")
             } else {
@@ -38,13 +39,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let lastName = document.get("lastname") as! String
                     let name = firstName + " " + lastName
                     self.nameLabel.text = name
-                    let username = document.get("username") as! String
+                    var username = "@"
+                    username += document.get("username") as! String
                     self.usernameLabel.text = username
                 }
             }
         }
-        
-        let docRef: DocumentReference? = db.collection("users").document(uid)
         
         DispatchQueue.main.async {
             

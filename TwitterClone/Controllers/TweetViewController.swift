@@ -36,15 +36,14 @@ class TweetViewController: UIViewController {
                     let lastName = document.get("lastname")
                     let userName = document.get("username")
                     
-                    docRef?.collection("tweets").addDocument(data: ["dateCreated": Date(), "firstname": firstName!, "lastname": lastName!,
-                                                                    "username": userName!, "tweet" : tweet, "length" : tweet.count],
-                                                             completion: { (error) in
-                                                                if  error != nil {
-                                                                    print("Error saving tweet")
-                                                                } else{
-                                                                    print("Document added")
-                                                                }
-                                                             })
+                    docRef?.collection("tweets").addDocument(data: ["dateCreated": Date(), "firstname": firstName!, "lastname": lastName!, "username": userName!, "tweet" : tweet, "length" : tweet.count], completion: { (error) in
+                        if  error != nil {
+                            print("Error saving tweet")
+                        } else{
+                            print("Document added")
+                            
+                        }
+                    })
                 }
             }
             //instanceOfFeedVC.tableView.reloadData()

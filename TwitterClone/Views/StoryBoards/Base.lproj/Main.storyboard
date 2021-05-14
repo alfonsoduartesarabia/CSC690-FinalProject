@@ -280,12 +280,6 @@
                                                         <constraint firstAttribute="width" constant="52" id="mH1-9u-MXz"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-Yx-bie">
-                                                    <rect key="frame" x="80" y="11" width="80" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello Wolrd you are fine " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m8u-Wz-yht">
                                                     <rect key="frame" x="0.0" y="56" width="414" height="128"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -299,25 +293,31 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhW-4y-9Ms">
-                                                    <rect key="frame" x="189" y="20" width="78.5" height="20.5"/>
+                                                    <rect key="frame" x="112" y="38" width="78.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-Yx-bie">
+                                                    <rect key="frame" x="112" y="0.0" width="112" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="leading" secondItem="uue-Qs-RC2" secondAttribute="trailing" constant="8" symbolic="YES" id="4ie-Wh-Cnl"/>
+                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="leading" secondItem="uue-Qs-RC2" secondAttribute="trailing" constant="40" id="4ie-Wh-Cnl"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EhW-4y-9Ms" secondAttribute="trailing" constant="20" symbolic="YES" id="6od-Ys-Pzo"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="leading" secondItem="m8u-Wz-yht" secondAttribute="leading" constant="20" id="DtZ-EM-YPs"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leading" constant="189" id="MM5-uw-jh6"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="9" id="WD5-if-vuP"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leading" constant="112" id="MM5-uw-jh6"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="27" id="WD5-if-vuP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="m8u-Wz-yht" secondAttribute="bottom" constant="-5" id="YY2-me-GOD"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="-3" id="ZSW-Df-ldo"/>
                                                 <constraint firstItem="m8u-Wz-yht" firstAttribute="top" secondItem="uue-Qs-RC2" secondAttribute="bottom" constant="8" symbolic="YES" id="ZpC-zu-e1I"/>
-                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="IEn-Yx-bie" secondAttribute="trailing" constant="29" id="hbi-4G-CaP"/>
-                                                <constraint firstItem="m8u-Wz-yht" firstAttribute="top" secondItem="IEn-Yx-bie" secondAttribute="bottom" constant="8" symbolic="YES" id="jgy-zV-ZNk"/>
+                                                <constraint firstItem="EhW-4y-9Ms" firstAttribute="leading" secondItem="IEn-Yx-bie" secondAttribute="trailing" constant="-112" id="hbi-4G-CaP"/>
+                                                <constraint firstItem="m8u-Wz-yht" firstAttribute="top" secondItem="IEn-Yx-bie" secondAttribute="bottom" constant="19" id="jgy-zV-ZNk"/>
                                                 <constraint firstItem="uue-Qs-RC2" firstAttribute="leading" secondItem="wRi-0I-6SK" secondAttribute="leadingMargin" id="klp-k2-O9v"/>
-                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" id="nOV-3f-O8X"/>
+                                                <constraint firstItem="IEn-Yx-bie" firstAttribute="top" secondItem="wRi-0I-6SK" secondAttribute="topMargin" constant="-11" id="nOV-3f-O8X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -401,7 +401,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8S-Di-ebg">
                                 <rect key="frame" x="126" y="87" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urv-fu-a5q">
